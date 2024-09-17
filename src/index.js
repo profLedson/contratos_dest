@@ -1,11 +1,18 @@
-import "./styles.css";
+let n1 = document.querySelector("#n1");
+let n2 = document.querySelector("#n2");
+const resSoma = document.querySelector(".res-soma");
+const resSub = document.querySelector(".res-sub");
+const btnCalc = document.querySelector(".btn-calc");
 
-document.getElementById("app").innerHTML = `
-<h1>Hello JavaScript!</h1>
-`;
+function setCalc() {
+  n1 = Number(n1.value);
+  n2 = Number(n2.value);
+  resSoma.innerHTML = `A soma entre ${n1} e ${n2} = ${n1 + n2}`;
+  resSub.innerHTML = `A subtração entre ${n1} e ${n2} = ${n1 - n2}`;
 
-function setCalc(n1, n2) {
-  alert(`A soma de ${n1} e ${n2} = ${n1 + n2}`);
+  // return `A soma de ${n1} e ${n2} = ${res}`;
 }
 
-setCalc(2, 5);
+btnCalc.addEventListener("click", function () {
+  setCalc();
+});
