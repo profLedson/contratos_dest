@@ -1,8 +1,10 @@
 let n1 = document.querySelector("#n1");
 let n2 = document.querySelector("#n2");
+
 const resSoma = document.querySelector(".res-soma");
 const resSub = document.querySelector(".res-sub");
 const btnCalc = document.querySelector(".btn-calc");
+const btnLimpar = document.querySelector(".btn-limpar");
 
 function setCalc() {
   n1 = Number(n1.value);
@@ -15,4 +17,9 @@ function setCalc() {
 
 btnCalc.addEventListener("click", function () {
   setCalc();
+});
+
+btnLimpar.addEventListener("click", function () {
+  n1.value = "";
+  n2.value = "";
 });
