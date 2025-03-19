@@ -1,0 +1,34 @@
+
+//GET http://localhost:3000
+//get http://localhost:3000/admin/ping
+
+# POST http://localhost:3000/admin/events
+# content-type: application/json
+# Authorization: Token AJFLSDKFJALKFDJsasd12328022025 
+
+# {    
+    
+#     "title": "Evento via POST 6",
+#     "description": "Custo mínimo $500",
+#     "grouped": false 
+   
+# }
+
+
+# GET http://localhost:3000/admin/events/4
+# Authorization: Token AJFLSDKFJALKFDJsasd12328022025
+
+GET http://localhost:3000/admin/events
+Authorization: Token AJFLSDKFJALKFDJsasd12328022025
+
+
+# POST http://localhost:3000/admin/login
+# Content-Type: application/json
+# HEAD : Authorization: Token AJFLSDKFJALKFDJsasd12328022025 
+
+# {
+#     "password" : "28022025"
+# }
+
+
+

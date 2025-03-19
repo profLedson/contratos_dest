@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  
+    --text-base: #fff;
+    --text-blue-500: #45527E;
+    --text-titulo-800: #151B30;
+
+    --bdr: 1px solid rgba(0,0,0,.4);
+
+    --bg-page-content: #E8E8E8;
+    --bg-page-content: #E8E8E8;
+
+    --bg-side-500: #526299;
+    --bg-side-800: #334377;
+    --p-card: 1rem;
+    --py-card: 1rem;
+    --px-card: 1rem;
+    --rad-card: 1rem;
+}
+
+
+@utility sidebar {
+  background-color: var(--bg-side-500);
+  color: var(--text-base); 
+  width: 270px;
+  border-right: var(--bdr);
+}
+@utility sideOpen {
+  background-color: var(--bg-side-800);  
+  padding-left: 1rem;
+}
+
+.item-side {
+  display: flex;
+  justify-content: start;
+  padding: var(--p-card);
+  border-top: var(--bdr); 
+  border-bottom: var(--bdr); 
+  width: 100%;
+  cursor: pointer;
+}
+.item-side:hover {
+  background-color: var(--bg-side-800);   
+}
+.item-side:active {
+  background-color: var(--bg-side-800);   
+}
+.page-content {
+  background-color: var(--bg-page-content);
+}
+.page-content {
+  background-color: var(--bg-page-content);
+}
+
+html,
+body {
+  @apply bg-white dark:bg-gray-950;
+
+  @media (prefers-color-scheme: light) {
+    color-scheme: light;
+  }
+}
+ 

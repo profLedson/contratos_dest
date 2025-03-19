@@ -1,0 +1,25 @@
+
+
+GET http://localhost:3000/usuarios
+
+###
+GET http://localhost:3000/usuarios/15
+###
+PUT http://localhost:3000/usuarios/15
+Content-Type: application/json
+
+{
+    "nome": "XXLaiara Maiara Silva",
+    "email": "naiara@gmail.com",
+    "senha": "321a"
+}
+
+###
+POST http://localhost:3000/usuarios
+Content-Type: application/json
+
+{
+    "nome": "LLaiara Maiara Silva",
+    "email": "naiara@gmail.com",
+    "senha": "321a"
+}

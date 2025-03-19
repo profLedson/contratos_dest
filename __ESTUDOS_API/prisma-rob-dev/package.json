@@ -1,0 +1,25 @@
+{
+  "author": "",
+  "license": "ISC",
+  "name": "prisma-rob-dev",
+  "version": "1.0.0",
+  "description": "- npm i -y - npm i -D @types/node typescript ts-node",
+  "main": "/src/api.ts",
+  "scripts": {
+    "dev": "npx nodemon src/api.ts"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.10",
+    "nodemon": "^3.1.9",
+    "prisma": "^6.5.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.5.0",
+    "express": "^4.21.2",
+    "express-async-errors": "^3.1.1"
+  }
+}

@@ -1,2 +1,0 @@
-let e=document.querySelector("#n1"),n=document.querySelector("#n2");const t=document.querySelector(".res-soma"),r=document.querySelector(".res-sub"),u=document.querySelector(".btn-calc"),c=document.querySelector(".btn-limpar");u.addEventListener("click",function(){e=Number(e.value),n=Number(n.value),t.innerHTML=`A soma entre ${e} e ${n} = ${e+n}`,r.innerHTML=`A subtra\xe7\xe3o entre ${e} e ${n} = ${e-n}`}),c.addEventListener("click",function(){e.value="",n.value=""});
-//# sourceMappingURL=index.c33329e0.js.map
