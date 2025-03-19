@@ -1,0 +1,34 @@
+
+###
+GET https://localhost:443/get-raw
+
+###
+get http://localhost:3000/admin/ping
+
+###
+POST http://localhost:9000/sync
+
+###
+content-type: application/json
+
+POST http://localhost:9000/add
+content-type: application/json
+values: {
+{
+
+  "num_sesp": "1d25/20252",
+  "gms": "cb1231asdfs",
+  "protocolo": "a12313211",
+  "num_licitacao_disp": "aa51231",
+  "fsp": "PM2",
+  "unidade":"PMPR2",
+  "modal_licitacao": "Sesp"
+}
+
+}
+
+
+
+
+
+

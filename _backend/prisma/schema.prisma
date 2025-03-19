@@ -1,0 +1,111 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+/**
+ * * New Prisma Project *
+ */
+// https://console.prisma.io/cm7oqzbw9001gfh34uwv53fs7/overview
+// https://www.youtube.com/watch?v=JDV8CKULPIk
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Usuario {
+  id        Int        @id @default(autoincrement())
+  nome      String
+  sobrenome String
+  email     String
+  senha     String
+  foto      String?
+  usuario   String?
+  Contrato  Contrato[]
+}
+
+model Fornecedor {
+  id            Int     @id @default(autoincrement())
+  nome_completo String
+  cpf           String
+  rg            String
+  email         String
+  num_telefone  String?
+  whatsapp      String?
+}
+
+model FSP {
+  id             Int              @id @default(autoincrement())
+  nome_fsp       String
+  subunidade     String[]
+  DadosContrato  DadosContrato[]
+  ObjetoContrato ObjetoContrato[]
+}
+
+model Material {
+  id             Int     @id @default(autoincrement())
+  nome_objeto    String?
+  quantidade     Int
+  desc_objeto    String?
+  valor_unit     Float   @default(0.0)
+  valor_contrato Float   @default(0.0)
+
+  ObjetoContrato ObjetoContrato[]
+}
+
+model Servico {
+  id             Int              @id @default(autoincrement())
+  nome_objeto    String?
+  desc_objeto    String?
+  qtd_postos     Float            @default(0.0)
+  valor_unit     Float            @default(0.0)
+  valor_mensal   Float            @default(0.0)
+  valor_contrato Float            @default(0.0)
+  ObjetoContrato ObjetoContrato[]
+}
+
+model ObjetoContrato {
+  id              Int      @id @default(autoincrement())
+  num_licitacao   String   @unique
+  material        Material @relation(fields: [materialId], references: [id])
+  servico         Servico  @relation(fields: [servicoId], references: [id])
+  fsp             FSP      @relation(fields: [fSPId], references: [id])
+  modal_licitacao String?
+  fSPId           Int
+  materialId      Int
+  servicoId       Int
+}
+
+model DadosContrato {
+  id              Int      @id @default(autoincrement())
+  num_sesp        String   @unique
+  num_gms         String?  @unique
+  protocolo       String[]
+  num_licitacao   String   @unique
+  fsp             FSP      @relation(fields: [fSPId], references: [id])
+  fSPId           Int
+  unidade         String?
+  modal_licitacao String?
+}
+
+model Contrato {
+  id             Int      @id @default(autoincrement())
+  num_sesp       String   @unique
+  num_gms        String?  @unique
+  protocolo      String[]
+  num_licitacao  String   @unique
+  fsp            String?
+  unidade        String?
+  modalidade     String?
+  status         String
+  internacional  Boolean  @default(false)
+  fonte_material String
+  responsavel    Usuario  @relation(fields: [responsavelId], references: [id])
+  responsavelId  Int
+}
