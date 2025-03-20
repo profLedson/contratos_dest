@@ -14,10 +14,22 @@ datasource db {
 }
 
 model User {
-  id       Int     @id @default(autoincrement())
-  nome     String? @db.VarChar(32)
-  email    String  @unique @db.VarChar(32)
-  senha    String  @db.VarChar(32)
+  id      Int       @id @default(autoincrement())
+  nome    String?   @db.VarChar(32)
+  email   String    @unique @db.VarChar(32)
+  senha   String    @db.VarChar(32)
+  perfil Profile?
 
   @@map("usuario")
+}
+
+model Profile {
+  id           Int      @id @default(autoincrement())
+  usuario      User     @relation(fields: [userId], references: [id])
+  userId Int @unique
+  foto         String?
+  criadoEm     DateTime @default(now())
+  atualizadoEm DateTime @updatedAt
+
+  @@map("perfil")
 }

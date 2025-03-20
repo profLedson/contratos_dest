@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "perfil" ALTER COLUMN "foto" SET DATA TYPE TEXT;
