@@ -6,6 +6,7 @@ import { error, log } from 'console';
 import 'express-async-errors'
 import UserRouter  from './routes/users';
 import { PrismaClient } from '@prisma/client';
+import { UserCategory } from './routes/category';
 
 const prisma = new PrismaClient();
 const app = express()
@@ -13,6 +14,7 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use("/usuarios", UserRouter());
+app.use("/categorias", UserCategory());
 
 const PORT = 3000
 

@@ -33,3 +33,10 @@ model Profile {
 
   @@map("perfil")
 }
+
+model Category {
+  id Int @id @default(autoincrement())
+  nome String @unique @db.VarChar(32)
+
+  @@map("categorias")
+}
