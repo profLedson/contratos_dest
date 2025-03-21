@@ -11,3 +11,10 @@ export type Perfil = {
 export type Categoria = {
     nome: string;
 }
+export type Transacao = {
+    titulo: string
+    descricao?: string
+    valor: number
+    tipo: string         
+    userId: number
+}

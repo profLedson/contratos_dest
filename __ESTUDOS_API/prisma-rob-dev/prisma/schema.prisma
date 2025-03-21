@@ -14,11 +14,12 @@ datasource db {
 }
 
 model User {
-  id      Int       @id @default(autoincrement())
-  nome    String?   @db.VarChar(32)
-  email   String    @unique @db.VarChar(32)
-  senha   String    @db.VarChar(32)
-  perfil Profile?
+  id         Int           @id @default(autoincrement())
+  nome       String?       @db.VarChar(32)
+  email      String        @unique @db.VarChar(32)
+  senha      String        @db.VarChar(32)
+  perfil     Profile?
+  transacoes Transaction[]
 
   @@map("usuario")
 }
@@ -26,7 +27,7 @@ model User {
 model Profile {
   id           Int      @id @default(autoincrement())
   usuario      User     @relation(fields: [userId], references: [id])
-  userId Int @unique
+  userId       Int      @unique
   foto         String?
   criadoEm     DateTime @default(now())
   atualizadoEm DateTime @updatedAt
@@ -35,8 +36,27 @@ model Profile {
 }
 
 model Category {
-  id Int @id @default(autoincrement())
+  id   Int    @id @default(autoincrement())
   nome String @unique @db.VarChar(32)
 
   @@map("categorias")
+}
+
+model Transaction {
+  id           Int             @id @default(autoincrement())
+  titulo       String          @unique @db.VarChar(32)
+  descricao    String?         @db.VarChar(100)
+  valor        Float           @default(0.0)
+  tipo         TipoTransaction
+  criadoEm     DateTime        @default(now())
+  atualizadoEm DateTime
+  dono         User            @relation(fields: [userId], references: [id])
+  userId       Int
+
+  @@map("transacao")
+}
+
+enum TipoTransaction {
+  RECEITA
+  DESPESA
 }
